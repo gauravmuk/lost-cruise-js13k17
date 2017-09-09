@@ -31,6 +31,10 @@ CollisionManager.prototype.shipWallCollision = function () {
             if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
                 console.info('Game Over');
             }
+        } else {
+            if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
+                GameFactory.setPortalMode();
+            }
         }
     }
 };

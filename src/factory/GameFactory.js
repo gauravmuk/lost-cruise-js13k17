@@ -47,7 +47,7 @@ var GameFactory = {
           }
       }
 
-      if (this.walls.length < 30) {
+      if (this.walls.length < 20) {
           this.walls.push(new Wall({isMovementHappening: true}));
       }
     },
@@ -59,6 +59,13 @@ var GameFactory = {
             } else if (this.walls[i].x < 50) {
                 this.checkWallCount();
             }
+        }
+    },
+    setPortalMode: function () {
+        this.isLost = true;
+        this.ship.isLost = true;
+        for (var i = 0; i < this.walls.length; i++) {
+            this.walls[i].isLost = true;
         }
     },
     viewPortWidth: window.innerWidth,

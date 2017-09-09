@@ -3,7 +3,7 @@ function Ship() {
     this.y = 10;
     this.vx = 0;
     this.vy = 0;
-    this.defaultSpeed = 8;
+    this.defaultSpeed = 4;
     this.speed = 6;
     this.friction = 0.95;
     this.width = 25;
@@ -11,11 +11,16 @@ function Ship() {
     this.bullets = [];
     this.counter = 0;
     this.fireRate = 15;
+    this.isLost = false;
 }
 
 Ship.prototype.paintBullets = function () {
   for (var i = 0; i < this.bullets.length; i++) {
-      this.bullets[i].paint();
+      if (!this.bullets[i].alive) {
+          this.bullets.splice(i, 1);
+      } else {
+          this.bullets[i].paint();
+      }
   }
 };
 
@@ -26,7 +31,11 @@ Ship.prototype.updateBullets = function () {
 };
 
 Ship.prototype.paint = function () {
-    ctx.fillStyle = 'red';
+    if (GameFactory.isLost) {
+        ctx.fillStyle = 'white';
+    } else {
+        ctx.fillStyle = 'red';
+    }
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.fill();
 
@@ -41,6 +50,19 @@ Ship.prototype.fireBullets = function () {
 
 Ship.prototype.update = function () {
     this.counter++;
+
+    if (keys[37]) {
+        if (this.vx > -this.speed) {
+            this.vx--;
+        }
+    }
+
+    if (keys[38]) {
+        if (this.vy > -this.speed) {
+            this.vy--;
+        }
+    }
+
     if (keys[39]) {
         if (this.vx < this.speed) {
             this.vx++;

@@ -12,11 +12,14 @@ Bullet.prototype.init = function (x, y, speed) {
 };
 
 Bullet.prototype.paint = function () {
-    if (this.alive) {
+    if (GameFactory.isLost) {
+        ctx.fillStyle = 'white';
+    } else if (this.alive) {
         ctx.fillStyle = 'black';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fill();
     }
+
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fill();
 };
 
 Bullet.prototype.update = function () {
