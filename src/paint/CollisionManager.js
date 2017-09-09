@@ -33,7 +33,11 @@ CollisionManager.prototype.shipWallCollision = function () {
             }
         } else {
             if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
-                GameFactory.setPortalMode();
+                if (GameFactory.isLost && GameFactory.walls[j].chanceOfRecovery > 0.5) {
+                    GameFactory.undoPortalMode();
+                } else {
+                    GameFactory.setPortalMode();
+                }
             }
         }
     }

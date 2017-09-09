@@ -10,12 +10,17 @@ function Wall(options) {
     this.portalColor = 'black';
     this.color = '#ffffff';
     this.alive = true;
+    this.chanceOfRecovery = Math.random();
     this.isLost = GameFactory.isLost || false;
 }
 
 Wall.prototype.paint = function () {
     if (GameFactory.isLost) {
-        ctx.fillStyle = this.showPortal ? this.portalColor : 'black';
+        if (this.showPortal && this.chanceOfRecovery > 0.5) {
+            ctx.fillStyle = 'white';
+        } else {
+            ctx.fillStyle = 'black';
+        }
     } else if (this.showPortal) {
         ctx.fillStyle = this.portalColor;
     } else {

@@ -68,6 +68,13 @@ var GameFactory = {
             this.walls[i].isLost = true;
         }
     },
+    undoPortalMode: function () {
+        this.isLost = false;
+        this.ship.isLost = false;
+        for (var i = 0; i < this.walls.length; i++) {
+            this.walls[i].isLost = false;
+        }
+    },
     viewPortWidth: window.innerWidth,
     viewPortHeight: window.innerHeight
 };
