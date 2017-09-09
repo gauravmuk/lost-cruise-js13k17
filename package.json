@@ -1,0 +1,7 @@
+{
+  "name": "ship-it-js13k-2k17",
+  "version": "1.0.0",
+  "main": "src/gameMaker.js",
+  "author": "Gaurav Nanda <93.gaurav@gmail.com>",
+  "license": "MIT"
+}
