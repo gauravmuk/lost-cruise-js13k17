@@ -1,6 +1,21 @@
 var ctx;
 var canvas;
 
+function bootstrap() {
+    if (GameFactory.state !== 'INTRO') {
+        GameFactory.addShip();
+        GameFactory.addWalls();
+        GameFactory.initCamera();
+
+
+        GameFactory.background.paint();
+        GameFactory.ship.paint();
+        GameFactory.paintWalls();
+        GameFactory.validateWalls();
+        GameFactory.initCollisionManager();
+    }
+}
+
 function initEngine() {
     canvas = document.createElement('canvas');
     canvas.width = GameFactory.viewPortWidth;
@@ -11,16 +26,9 @@ function initEngine() {
     GameFactory.addCanvas(document.querySelector('canvas'));
     GameFactory.addBackground();
 
-    GameFactory.addShip();
-    GameFactory.addWalls();
-    GameFactory.initCamera();
+    GameFactory.introScreen();
 
-
-    GameFactory.background.paint();
-    GameFactory.ship.paint();
-    GameFactory.paintWalls();
-    GameFactory.validateWalls();
-    GameFactory.initCollisionManager();
+    bootstrap();
 
     runFPS();
 }

@@ -24,9 +24,16 @@ var GameFactory = {
         }
     },
     update: function () {
-        GameFactory.ship.update();
+        if (this.state !== 'INTRO') {
+            GameFactory.ship.update();
+        }
     },
     paint: function () {
+        if (this.state === 'INTRO' && keys[13]) {
+            this.state = 'RUNNING';
+            bootstrap();
+        }
+
         if (this.state === 'RUNNING') {
             this.background.paint();
             this.ship.paint();
@@ -86,6 +93,20 @@ var GameFactory = {
     },
     state: 'RUNNING',
     score: 0,
+    introScreen: function () {
+        this.state = 'INTRO';
+        ctx.font = '24px serif';
+        ctx.fillText('Lost Cruise', 100, 100);
+        ctx.fillText('Keys:', 100, 150);
+        ctx.fillText('Right Arrow -> Accelerate', 100, 200);
+        ctx.fillText('Left Arrow -> Slow Down(Disabled)', 100, 250);
+        ctx.fillText('Up Arrow -> Bubble Up', 100, 300);
+        ctx.fillText('Down Arrow -> Sink', 100, 350);
+        ctx.fillText('Break Walls To Find Portals!', 100, 400);
+        ctx.fillText('Black Portal reveals the LOST WORLD :D', 100, 450);
+        ctx.fillText('Green Portal allows the use of magical left arrow to ease the game :P', 100, 500);
+        ctx.fillText('ENTER Key starts the game', 100, 550);
+    },
     viewPortWidth: window.innerWidth,
     viewPortHeight: window.innerHeight
 };
