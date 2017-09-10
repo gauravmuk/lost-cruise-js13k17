@@ -6,8 +6,8 @@ function Ship() {
     this.defaultSpeed = 4;
     this.speed = 6;
     this.friction = 0.95;
-    this.width = 25;
-    this.height = 25;
+    this.width = 96;
+    this.height = 40;
     this.bullets = [];
     this.counter = 0;
     this.fireRate = 15;
@@ -31,13 +31,15 @@ Ship.prototype.updateBullets = function () {
 };
 
 Ship.prototype.paint = function () {
-    if (GameFactory.isLost) {
+    /*if (GameFactory.isLost) {
         ctx.fillStyle = 'white';
     } else {
         ctx.fillStyle = 'red';
     }
     ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fill();
+    ctx.fill();*/
+
+    ctx.drawImage(document.querySelector('#ship'), this.x, this.y, this.width, this.height);
 
     this.paintBullets();
 };
