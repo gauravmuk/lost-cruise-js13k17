@@ -13,7 +13,7 @@ var GameFactory = {
         this.ship = new Ship();
     },
     addWalls: function () {
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 20; i++) {
             this.walls = this.walls || [];
             this.walls.push(new Wall());
         }
@@ -27,12 +27,14 @@ var GameFactory = {
         GameFactory.ship.update();
     },
     paint: function () {
-        this.background.paint();
-        this.ship.paint();
-        this.paintWalls();
-        this.collisionManager.wallBulletCollision();
-        this.collisionManager.shipWallCollision();
-        this.validateWalls();
+        if (this.state === 'RUNNING') {
+            this.background.paint();
+            this.ship.paint();
+            this.paintWalls();
+            this.collisionManager.wallBulletCollision();
+            this.collisionManager.shipWallCollision();
+            this.validateWalls();
+        }
     },
     initCollisionManager: function () {
         this.collisionManager = new CollisionManager();
@@ -82,6 +84,8 @@ var GameFactory = {
             self.reverseMode = false;
         }, 5000);
     },
+    state: 'RUNNING',
+    score: 0,
     viewPortWidth: window.innerWidth,
     viewPortHeight: window.innerHeight
 };

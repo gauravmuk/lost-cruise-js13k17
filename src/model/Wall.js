@@ -3,7 +3,7 @@ var colors = ['black', 'green'];
 function Wall(options) {
     options = options || {};
     this.isMovementHappening = options.isMovementHappening || false;
-    this.shiftDelta = options.isMovementHappening ? 250 : 0;
+    this.shiftDelta = options.isMovementHappening ? 0 : 250;
     this.x = options.x || WallsController.decideWallXPosition(this.shiftDelta);
     this.y = options.y || randomNumber(0, GameFactory.viewPortHeight);
     this.width = options.width || 25;
@@ -14,6 +14,7 @@ function Wall(options) {
     this.alive = true;
     this.chanceOfRecovery = Math.random();
     this.isLost = GameFactory.isLost || false;
+    this.scored = false;
 }
 
 Wall.prototype.paint = function () {
