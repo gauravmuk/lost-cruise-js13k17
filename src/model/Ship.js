@@ -44,6 +44,7 @@ Ship.prototype.paint = function () {
 
 Ship.prototype.fireBullets = function () {
     var bullet = new Bullet();
+    playAudio([1,,0.2703,0.2778,0.1181,0.8566,0.2754,-0.272,,,,,,0.1877,0.1543,,,,1,,,,,0.5]);
     bullet.init(this.x + this.width, this.y + (this.height / 2), 20);
     this.bullets.push(bullet);
 };

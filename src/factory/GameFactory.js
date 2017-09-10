@@ -95,7 +95,7 @@ var GameFactory = {
     score: 0,
     introScreen: function () {
         this.state = 'INTRO';
-        ctx.font = '24px serif';
+        ctx.font = '24px p';
         ctx.fillText('Lost Cruise', 100, 100);
         ctx.fillText('Keys:', 100, 150);
         ctx.fillText('Right Arrow -> Accelerate', 100, 200);

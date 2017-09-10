@@ -35,19 +35,25 @@ CollisionManager.prototype.shipWallCollision = function () {
             if (!GameFactory.walls[j].showPortal) {
                 if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
                     GameFactory.state = 'GAME_OVER';
-                    alert('Game Over! Your score is: ' + GameFactory.score);
-                    window.location.reload(true);
+                    playAudio([3,,0.3742,0.7757,0.3575,0.1445,,-0.0568,,,,,,,,0.3485,0.0426,-0.134,1,,,,,0.61]);
+                    setTimeout(function () {
+                        alert('Game Over! Your score is: ' + GameFactory.score);
+                        window.location.reload(true);
+                    }, 250);
                 }
             } else {
                 if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
                     if (GameFactory.isLost && GameFactory.walls[j].chanceOfRecovery > 0.5) {
+                        playAudio([0,,0.0712,,0.4461,0.2341,,0.4116,,,,,,0.5762,,0.4397,,,1,,,,,0.5]);
                         GameFactory.undoPortalMode();
                         GameFactory.walls[j].hide = true;
                     } else {
                         if (GameFactory.walls[j].portalColor === 'black') {
+                            playAudio([1,,0.3881,,0.4212,0.2738,,0.3543,,,,,,,,0.6422,,,1,,,,,0.5]);
                             GameFactory.setLostMode();
                             GameFactory.walls[j].hide = true;
                         } else {
+                            playAudio([0,,0.0389,0.5667,0.3495,0.4261,,,,,,0.5479,0.5348,,,,,,1,,,,,0.5]);
                             GameFactory.activateReverseMode();
                             GameFactory.walls[j].hide = true;
                         }

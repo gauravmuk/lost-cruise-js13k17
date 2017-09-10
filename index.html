@@ -11,9 +11,19 @@
         body {
             overflow: hidden;
         }
+
+        @font-face {
+            font-family: 'p';
+            src: url('assets/p.woff2');
+        }
+
+        canvas {
+            font-family: 'p';
+        }
     </style>
 </head>
 <body>
+    <div style="font-family: 'p'; opacity: 0; position: absolute;">Hello World</div>
     <script src="lib/jsfxr.js"></script>
     <script src="src/events/Keyboard.js"></script>
 
