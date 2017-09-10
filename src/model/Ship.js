@@ -15,13 +15,13 @@ function Ship() {
 }
 
 Ship.prototype.paintBullets = function () {
-  for (var i = 0; i < this.bullets.length; i++) {
-      if (!this.bullets[i].alive) {
-          this.bullets.splice(i, 1);
-      } else {
-          this.bullets[i].paint();
-      }
-  }
+    for (var i = 0; i < this.bullets.length; i++) {
+        if (!this.bullets[i].alive) {
+            this.bullets.splice(i, 1);
+        } else {
+            this.bullets[i].paint();
+        }
+    }
 };
 
 Ship.prototype.updateBullets = function () {
@@ -51,7 +51,7 @@ Ship.prototype.fireBullets = function () {
 Ship.prototype.update = function () {
     this.counter++;
 
-    if (keys[37]) {
+    if (keys[37] && GameFactory.reverseMode) {
         if (this.vx > -this.speed) {
             this.vx--;
         }

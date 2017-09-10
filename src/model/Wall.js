@@ -1,3 +1,5 @@
+var colors = ['black', 'green'];
+
 function Wall(options) {
     options = options || {};
     this.isMovementHappening = options.isMovementHappening || false;
@@ -7,7 +9,7 @@ function Wall(options) {
     this.width = options.width || 25;
     this.height = options.height || 25;
     this.showPortal = false;
-    this.portalColor = 'black';
+    this.portalColor = colors[randomNumber(0, colors.length - 1)];
     this.color = '#ffffff';
     this.alive = true;
     this.chanceOfRecovery = Math.random();

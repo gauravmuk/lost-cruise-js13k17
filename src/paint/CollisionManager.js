@@ -36,7 +36,11 @@ CollisionManager.prototype.shipWallCollision = function () {
                 if (GameFactory.isLost && GameFactory.walls[j].chanceOfRecovery > 0.5) {
                     GameFactory.undoPortalMode();
                 } else {
-                    GameFactory.setPortalMode();
+                    if (GameFactory.walls[j].portalColor === 'black') {
+                        GameFactory.setLostMode();
+                    } else {
+                        GameFactory.activateReverseMode();
+                    }
                 }
             }
         }

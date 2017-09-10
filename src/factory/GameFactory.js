@@ -7,10 +7,10 @@ var GameFactory = {
         ctx = canvas.getContext('2d');
     },
     addBackground: function () {
-      this.background = new Background();
+        this.background = new Background();
     },
     addShip: function () {
-      this.ship = new Ship();
+        this.ship = new Ship();
     },
     addWalls: function () {
         for (var i = 0; i < 10; i++) {
@@ -40,16 +40,16 @@ var GameFactory = {
     initCamera: function () {
         this.camera = new Camera(GameFactory.ship.x, GameFactory.ship.y);
     },
-    checkWallCount: function() {
-      for (var i = 0; i < this.walls.length; i++) {
-          if (!this.walls[i].alive) {
-              this.walls.splice(i, 1);
-          }
-      }
+    checkWallCount: function () {
+        for (var i = 0; i < this.walls.length; i++) {
+            if (!this.walls[i].alive) {
+                this.walls.splice(i, 1);
+            }
+        }
 
-      if (this.walls.length < 20) {
-          this.walls.push(new Wall({isMovementHappening: true}));
-      }
+        if (this.walls.length < 20) {
+            this.walls.push(new Wall({isMovementHappening: true}));
+        }
     },
     validateWalls: function () {
         for (var i = 0; i < this.walls.length; i++) {
@@ -61,7 +61,7 @@ var GameFactory = {
             }
         }
     },
-    setPortalMode: function () {
+    setLostMode: function () {
         this.isLost = true;
         this.ship.isLost = true;
         for (var i = 0; i < this.walls.length; i++) {
@@ -74,6 +74,13 @@ var GameFactory = {
         for (var i = 0; i < this.walls.length; i++) {
             this.walls[i].isLost = false;
         }
+    },
+    activateReverseMode: function () {
+        var self = this;
+        self.reverseMode = true;
+        setTimeout(function () {
+            self.reverseMode = false;
+        }, 5000);
     },
     viewPortWidth: window.innerWidth,
     viewPortHeight: window.innerHeight
