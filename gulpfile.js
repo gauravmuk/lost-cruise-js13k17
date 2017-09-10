@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify');
 
 gulp.task('build', function () {
     return gulp.src([
+        'lib/jsfxr.js',
         'src/events/Keyboard.js',
         'src/utils/Utils.js',
         'src/model/Camera.js',
