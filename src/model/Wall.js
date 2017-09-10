@@ -56,7 +56,7 @@ Wall.prototype.paint = function () {
             ctx.closePath();
         } else {
             ctx.beginPath();
-            ctx.ellipse(this.x, this.y, this.width, this.height, 0, 0, 2 * Math.PI);
+            ctx.ellipse(this.x, this.y, 10, 10, 0, 0, 2 * Math.PI);
             ctx.closePath();
             ctx.fillStyle = currentColor;
             ctx.fill();
