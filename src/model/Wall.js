@@ -18,34 +18,24 @@ function Wall(options) {
 }
 
 Wall.prototype.paint = function () {
-    if (GameFactory.isLost) {
-        if (this.showPortal && this.chanceOfRecovery > 0.5) {
-            ctx.fillStyle = 'white';
+    if (!this.hide) {
+        if (GameFactory.isLost) {
+            if (this.showPortal && this.chanceOfRecovery > 0.5) {
+                ctx.fillStyle = 'white';
+            } else {
+                ctx.fillStyle = 'black';
+            }
+        } else if (this.showPortal) {
+            ctx.fillStyle = this.portalColor;
         } else {
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = this.color;
         }
-    } else if (this.showPortal) {
-        ctx.fillStyle = this.portalColor;
-    } else {
-        ctx.fillStyle = this.color;
+
+        if (GameFactory.ship.x > canvas.width / 2) {
+            this.x = this.x - 10;
+        }
+
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fill();
     }
-
-    if (GameFactory.ship.x > canvas.width / 2) {
-        this.x = this.x - 10;
-    }
-
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fill();
-};
-
-Wall.prototype.destroy = function () {
-
-};
-
-Wall.prototype.revealPortal = function () {
-
-};
-
-Wall.prototype.onCollision = function () {
-
 };

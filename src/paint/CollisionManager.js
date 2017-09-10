@@ -11,13 +11,17 @@ CollisionManager.prototype.rectanglesCollide = function (rect1, rect2) {
 
 CollisionManager.prototype.wallBulletCollision = function () {
     for (var j = 0; j < GameFactory.walls.length; j++) {
-        if (!GameFactory.walls[j].showPortal) {
+        if (!GameFactory.walls[j].showPortal && !GameFactory.walls[j].hide) {
             for (var i = 0; i < GameFactory.ship.bullets.length; i++) {
                 var currentBullet = GameFactory.ship.bullets[i];
                 if (currentBullet.alive) {
                     var currentWall = GameFactory.walls[j];
                     if (this.rectanglesCollide(currentBullet, currentWall)) {
                         currentWall.showPortal = true;
+                        if (!GameFactory.walls[j].scored) {
+                            GameFactory.walls[j].scored = true;
+                            GameFactory.score++;
+                        }
                     }
                 }
             }
@@ -27,19 +31,26 @@ CollisionManager.prototype.wallBulletCollision = function () {
 
 CollisionManager.prototype.shipWallCollision = function () {
     for (var j = 0; j < GameFactory.walls.length; j++) {
-        if (!GameFactory.walls[j].showPortal) {
-            if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
-                console.info('Game Over');
-            }
-        } else {
-            if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
-                if (GameFactory.isLost && GameFactory.walls[j].chanceOfRecovery > 0.5) {
-                    GameFactory.undoPortalMode();
-                } else {
-                    if (GameFactory.walls[j].portalColor === 'black') {
-                        GameFactory.setLostMode();
+        if (!GameFactory.walls[j].hide) {
+            if (!GameFactory.walls[j].showPortal) {
+                if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
+                    GameFactory.state = 'GAME_OVER';
+                    alert('Game Over! Your score is: ' + GameFactory.score);
+                    window.location.reload(true);
+                }
+            } else {
+                if (this.rectanglesCollide(GameFactory.ship, GameFactory.walls[j])) {
+                    if (GameFactory.isLost && GameFactory.walls[j].chanceOfRecovery > 0.5) {
+                        GameFactory.undoPortalMode();
+                        GameFactory.walls[j].hide = true;
                     } else {
-                        GameFactory.activateReverseMode();
+                        if (GameFactory.walls[j].portalColor === 'black') {
+                            GameFactory.setLostMode();
+                            GameFactory.walls[j].hide = true;
+                        } else {
+                            GameFactory.activateReverseMode();
+                            GameFactory.walls[j].hide = true;
+                        }
                     }
                 }
             }
