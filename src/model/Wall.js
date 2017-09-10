@@ -18,24 +18,48 @@ function Wall(options) {
 }
 
 Wall.prototype.paint = function () {
+    var currentColor;
     if (!this.hide) {
         if (GameFactory.isLost) {
             if (this.showPortal && this.chanceOfRecovery > 0.5) {
-                ctx.fillStyle = 'white';
+                currentColor = 'white';
             } else {
-                ctx.fillStyle = 'black';
+                currentColor = 'black';
             }
         } else if (this.showPortal) {
-            ctx.fillStyle = this.portalColor;
+            currentColor = this.portalColor;
         } else {
-            ctx.fillStyle = this.color;
+            currentColor = this.color;
         }
 
         if (GameFactory.ship.x > canvas.width / 2) {
             this.x = this.x - 10;
         }
 
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fill();
+        if (!this.showPortal) {
+            ctx.beginPath();
+            ctx.fillStyle = currentColor;
+            ctx.fillRect(this.x, this.y, this.width / 2, this.height / 4);
+            ctx.fillRect(this.x + this.width / 2, this.y, this.width / 2, this.height / 4);
+
+            ctx.fillRect(this.x, this.y + this.height / 4, this.width / 3, this.height / 4);
+            ctx.fillRect(this.x + this.width / 3, this.y + this.height / 4, this.width / 3, this.height / 4);
+            ctx.fillRect(this.x + 2 * this.width / 3, this.y + this.height / 4, this.width / 3, this.height / 4);
+
+            ctx.fillRect(this.x, this.y + this.height / 2, this.width / 2, this.height / 4);
+            ctx.fillRect(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, this.height / 4);
+
+            ctx.fillRect(this.x, this.y + 3 * this.height / 4, this.width / 3, this.height / 4);
+            ctx.fillRect(this.x + this.width / 3, this.y + 3 * this.height / 4, this.width / 3, this.height / 4);
+            ctx.fillRect(this.x + 2 * this.width / 3, this.y + 3 * this.height / 4, this.width / 3, this.height / 4);
+            ctx.fill();
+            ctx.closePath();
+        } else {
+            ctx.beginPath();
+            ctx.ellipse(this.x, this.y, this.width, this.height, 0, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = currentColor;
+            ctx.fill();
+        }
     }
 };
