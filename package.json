@@ -3,5 +3,12 @@
   "version": "1.0.0",
   "main": "src/gameMaker.js",
   "author": "Gaurav Nanda <93.gaurav@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "global": "^4.3.2",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0"
+  }
 }
