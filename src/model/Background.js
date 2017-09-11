@@ -1,7 +1,7 @@
 function Background() {
     this.width = GameFactory.viewPortWidth;
     this.height = GameFactory.viewPortHeight;
-    this.color = '#40a4df';
+    this.color = '#2d72da';
     this.isLost = false;
 }
 

@@ -98,8 +98,8 @@ var GameFactory = {
 
 
         var grd = ctx.createRadialGradient(this.viewPortWidth / 2, this.viewPortHeight / 2, 10, this.viewPortWidth / 2, this.viewPortHeight / 2, 500);
-        grd.addColorStop(0, '#1B1F3B');
-        grd.addColorStop(1, '#B14AED');
+        grd.addColorStop(0, '#02b0ea');
+        grd.addColorStop(1, '#2d72da');
 
         ctx.fillStyle = grd;
 
@@ -107,11 +107,11 @@ var GameFactory = {
 
         this.state = 'INTRO';
         ctx.font = '96px p';
-        ctx.fillStyle = '#18206F';
+        ctx.fillStyle = '#8AC926';
         textWidth = ctx.measureText('Lost Cruise').width;
         ctx.fillText('Lost Cruise', canvas.width / 2 - textWidth / 2, 100);
 
-        ctx.fillStyle = '#D138BF';
+        ctx.fillStyle = '#FFCA3A';
         ctx.font = '20px p';
         ctx.fillText('How to play:', canvas.width / 2 - ctx.measureText('How to play:').width / 2, 150);
         ctx.fillText('Right Arrow for Accelerate', canvas.width / 2 - ctx.measureText('Right Arrow for Accelerate').width / 2, 200);
@@ -120,7 +120,7 @@ var GameFactory = {
         ctx.fillText('Down Arrow for Sink', canvas.width / 2 - ctx.measureText('Down Arrow for Sink').width / 2, 350);
         ctx.fillText('Space Button shoots bullets', canvas.width / 2 - ctx.measureText('Space Button shoots bullets').width / 2, 400);
 
-        ctx.fillStyle = '#320A28';
+        ctx.fillStyle = '#D64933';
         ctx.font = '30px p';
         ctx.fillText('Break Walls To Find Portals!', canvas.width / 2 - ctx.measureText('Break Walls To Find Portals!').width / 2, 450);
         ctx.fillText('Black Portal reveals the LOST WORLD :D', canvas.width / 2 - ctx.measureText('Black Portal reveals the LOST WORLD :D').width / 2, 500);
