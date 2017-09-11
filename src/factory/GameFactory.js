@@ -114,10 +114,10 @@ var GameFactory = {
         ctx.fillStyle = '#FFCA3A';
         ctx.font = '20px p';
         ctx.fillText('How to play:', canvas.width / 2 - ctx.measureText('How to play:').width / 2, 150);
-        ctx.fillText('Right Arrow for Accelerate', canvas.width / 2 - ctx.measureText('Right Arrow for Accelerate').width / 2, 200);
-        ctx.fillText('Left Arrow for Slow Down(Disabled)', canvas.width / 2 - ctx.measureText('Left Arrow for Slow Down(Disabled)').width / 2, 250);
-        ctx.fillText('Up Arrow for Bubble Up', canvas.width / 2 - ctx.measureText('Up Arrow for Bubble Up').width / 2, 300);
-        ctx.fillText('Down Arrow for Sink', canvas.width / 2 - ctx.measureText('Down Arrow for Sink').width / 2, 350);
+        ctx.fillText('Right Arrow to Accelerate', canvas.width / 2 - ctx.measureText('Right Arrow to Accelerate').width / 2, 200);
+        ctx.fillText('Left Arrow to Slow Down(Disabled)', canvas.width / 2 - ctx.measureText('Left Arrow to Slow Down(Disabled)').width / 2, 250);
+        ctx.fillText('Up Arrow to Bubble Up', canvas.width / 2 - ctx.measureText('Up Arrow to Bubble Up').width / 2, 300);
+        ctx.fillText('Down Arrow to Sink', canvas.width / 2 - ctx.measureText('Down Arrow to Sink').width / 2, 350);
         ctx.fillText('Space Button shoots bullets', canvas.width / 2 - ctx.measureText('Space Button shoots bullets').width / 2, 400);
 
         ctx.fillStyle = '#D64933';
