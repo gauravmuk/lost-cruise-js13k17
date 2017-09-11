@@ -46,9 +46,6 @@ var GameFactory = {
     initCollisionManager: function () {
         this.collisionManager = new CollisionManager();
     },
-    initCamera: function () {
-        this.camera = new Camera(GameFactory.ship.x, GameFactory.ship.y);
-    },
     checkWallCount: function () {
         for (var i = 0; i < this.walls.length; i++) {
             if (!this.walls[i].alive) {
