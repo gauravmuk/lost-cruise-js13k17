@@ -19,15 +19,23 @@ function Wall(options) {
 
 Wall.prototype.paint = function () {
     var currentColor;
+    var $el;
     if (!this.hide) {
         if (GameFactory.isLost) {
             if (this.showPortal && this.chanceOfRecovery > 0.5) {
                 currentColor = 'white';
+                $el = document.querySelector('#portal-white');
             } else {
                 currentColor = 'black';
+                $el = document.querySelector('#portal-black');
             }
         } else if (this.showPortal) {
             currentColor = this.portalColor;
+            if (this.portalColor === 'black') {
+                $el = document.querySelector('#portal-black');
+            } else {
+                $el = document.querySelector('#portal-orange');
+            }
         } else {
             currentColor = this.color;
         }
@@ -55,11 +63,7 @@ Wall.prototype.paint = function () {
             ctx.fill();
             ctx.closePath();
         } else {
-            ctx.beginPath();
-            ctx.ellipse(this.x, this.y, 12, 18, 0, 0, 2 * Math.PI);
-            ctx.closePath();
-            ctx.fillStyle = currentColor;
-            ctx.fill();
+            ctx.drawImage($el, this.x, this.y, 25, 40);
         }
     }
 };
