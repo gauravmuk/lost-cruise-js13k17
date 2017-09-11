@@ -31,15 +31,14 @@ Ship.prototype.updateBullets = function () {
 };
 
 Ship.prototype.paint = function () {
-    /*if (GameFactory.isLost) {
-        ctx.fillStyle = 'white';
+    var $el;
+    if (GameFactory.isLost) {
+        $el = document.querySelector('#ship-lost');
     } else {
-        ctx.fillStyle = 'red';
+        $el = document.querySelector('#ship');
     }
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fill();*/
 
-    ctx.drawImage(document.querySelector('#ship'), this.x, this.y, this.width, this.height);
+    ctx.drawImage($el, this.x, this.y, this.width, this.height);
 
     this.paintBullets();
 };

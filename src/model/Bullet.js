@@ -1,7 +1,7 @@
 function Bullet() {
     this.alive = false;
-    this.width = 10;
-    this.height = 10;
+    this.width = 50;
+    this.height = 12;
 }
 
 Bullet.prototype.init = function (x, y, speed) {
@@ -12,14 +12,14 @@ Bullet.prototype.init = function (x, y, speed) {
 };
 
 Bullet.prototype.paint = function () {
+    var $el;
     if (GameFactory.isLost) {
-        ctx.fillStyle = 'white';
+        $el = document.querySelector('#bullet-lost');
     } else if (this.alive) {
-        ctx.fillStyle = 'black';
+        $el = document.querySelector('#bullet');
     }
 
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fill();
+    ctx.drawImage($el, this.x, this.y, this.width, this.height);
 };
 
 Bullet.prototype.update = function () {
