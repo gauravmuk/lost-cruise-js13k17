@@ -20,7 +20,7 @@ function initEngine() {
 
     document.body.appendChild(canvas);
 
-    GameFactory.addCanvas(document.querySelector('canvas'));
+    GameFactory.addCanvas($('canvas'));
     GameFactory.addBackground();
 
     GameFactory.introScreen();

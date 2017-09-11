@@ -33,9 +33,9 @@ Ship.prototype.updateBullets = function () {
 Ship.prototype.paint = function () {
     var $el;
     if (GameFactory.isLost) {
-        $el = document.querySelector('#ship-lost');
+        $el = $('#sl');
     } else {
-        $el = document.querySelector('#ship');
+        $el = $('#s');
     }
 
     ctx.drawImage($el, this.x, this.y, this.width, this.height);

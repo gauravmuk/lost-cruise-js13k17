@@ -14,9 +14,9 @@ Bullet.prototype.init = function (x, y, speed) {
 Bullet.prototype.paint = function () {
     var $el;
     if (GameFactory.isLost) {
-        $el = document.querySelector('#bullet-lost');
+        $el = $('#bl');
     } else if (this.alive) {
-        $el = document.querySelector('#bullet');
+        $el = $('#b');
     }
 
     ctx.drawImage($el, this.x, this.y, this.width, this.height);

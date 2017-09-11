@@ -8,3 +8,7 @@ function playAudio(arr) {
     player.src = soundUrl;
     player.play();
 }
+
+function $(id) {
+    return document.querySelector(id);
+}

@@ -24,17 +24,17 @@ Wall.prototype.paint = function () {
         if (GameFactory.isLost) {
             if (this.showPortal && this.chanceOfRecovery > 0.5) {
                 currentColor = 'white';
-                $el = document.querySelector('#portal-white');
+                $el = $('#pw');
             } else {
                 currentColor = 'black';
-                $el = document.querySelector('#portal-black');
+                $el = $('#pb');
             }
         } else if (this.showPortal) {
             currentColor = this.portalColor;
             if (this.portalColor === 'black') {
-                $el = document.querySelector('#portal-black');
+                $el = $('#pb');
             } else {
-                $el = document.querySelector('#portal-orange');
+                $el = $('#po');
             }
         } else {
             currentColor = this.color;
