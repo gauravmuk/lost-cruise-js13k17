@@ -38,7 +38,7 @@ CollisionManager.prototype.shipWallCollision = function () {
                     playAudio([3,,0.3742,0.7757,0.3575,0.1445,,-0.0568,,,,,,,,0.3485,0.0426,-0.134,1,,,,,0.61]);
                     setTimeout(function () {
                         alert('Game Over! Your score is: ' + GameFactory.score);
-                        window.location.reload(true);
+                        location.reload(true);
                     }, 250);
                 }
             } else {

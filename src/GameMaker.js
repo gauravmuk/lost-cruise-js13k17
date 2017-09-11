@@ -14,11 +14,11 @@ function bootstrap() {
 }
 
 function initEngine() {
-    canvas = document.createElement('canvas');
+    canvas = D.createElement('canvas');
     canvas.width = GameFactory.viewPortWidth;
     canvas.height = GameFactory.viewPortHeight;
 
-    document.body.appendChild(canvas);
+    D.body.appendChild(canvas);
 
     GameFactory.addCanvas($('canvas'));
     GameFactory.addBackground();
@@ -30,4 +30,4 @@ function initEngine() {
     runFPS();
 }
 
-document.body.onload = initEngine;
+D.body.onload = initEngine;

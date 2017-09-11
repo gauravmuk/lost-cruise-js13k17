@@ -138,6 +138,6 @@ var GameFactory = {
         ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 600);
         ctx.fill();
     },
-    viewPortWidth: window.innerWidth,
-    viewPortHeight: window.innerHeight
+    viewPortWidth: innerWidth,
+    viewPortHeight: innerHeight
 };

@@ -1,3 +1,5 @@
+var D = document;
+
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -10,5 +12,5 @@ function playAudio(arr) {
 }
 
 function $(id) {
-    return document.querySelector(id);
+    return D.querySelector(id);
 }
