@@ -94,18 +94,39 @@ var GameFactory = {
     state: 'RUNNING',
     score: 0,
     introScreen: function () {
+        var textWidth;
+
+
+        var grd = ctx.createRadialGradient(this.viewPortWidth / 2, this.viewPortHeight / 2, 10, this.viewPortWidth / 2, this.viewPortHeight / 2, 500);
+        grd.addColorStop(0, '#1B1F3B');
+        grd.addColorStop(1, '#B14AED');
+
+        ctx.fillStyle = grd;
+
+        ctx.fillRect(0, 0, this.viewPortWidth, this.viewPortHeight);
+
         this.state = 'INTRO';
-        ctx.font = '24px p';
-        ctx.fillText('Lost Cruise', 100, 100);
-        ctx.fillText('Keys:', 100, 150);
-        ctx.fillText('Right Arrow -> Accelerate', 100, 200);
-        ctx.fillText('Left Arrow -> Slow Down(Disabled)', 100, 250);
-        ctx.fillText('Up Arrow -> Bubble Up', 100, 300);
-        ctx.fillText('Down Arrow -> Sink', 100, 350);
-        ctx.fillText('Break Walls To Find Portals!', 100, 400);
-        ctx.fillText('Black Portal reveals the LOST WORLD :D', 100, 450);
-        ctx.fillText('Green Portal allows the use of magical left arrow to ease the game :P', 100, 500);
-        ctx.fillText('ENTER Key starts the game', 100, 550);
+        ctx.font = '96px p';
+        ctx.fillStyle = '#18206F';
+        textWidth = ctx.measureText('Lost Cruise').width;
+        ctx.fillText('Lost Cruise', canvas.width / 2 - textWidth / 2, 100);
+
+        ctx.fillStyle = '#D138BF';
+        ctx.font = '20px p';
+        ctx.fillText('How to play:', canvas.width / 2 - ctx.measureText('How to play:').width / 2, 150);
+        ctx.fillText('Right Arrow for Accelerate', canvas.width / 2 - ctx.measureText('Right Arrow for Accelerate').width / 2, 200);
+        ctx.fillText('Left Arrow for Slow Down(Disabled)', canvas.width / 2 - ctx.measureText('Left Arrow for Slow Down(Disabled)').width / 2, 250);
+        ctx.fillText('Up Arrow for Bubble Up', canvas.width / 2 - ctx.measureText('Up Arrow for Bubble Up').width / 2, 300);
+        ctx.fillText('Down Arrow for Sink', canvas.width / 2 - ctx.measureText('Down Arrow for Sink').width / 2, 350);
+        ctx.fillText('Space Button shoots bullets', canvas.width / 2 - ctx.measureText('Space Button shoots bullets').width / 2, 400);
+
+        ctx.fillStyle = '#320A28';
+        ctx.font = '30px p';
+        ctx.fillText('Break Walls To Find Portals!', canvas.width / 2 - ctx.measureText('Break Walls To Find Portals!').width / 2, 450);
+        ctx.fillText('Black Portal reveals the LOST WORLD :D', canvas.width / 2 - ctx.measureText('Black Portal reveals the LOST WORLD :D').width / 2, 500);
+        ctx.fillText('Green Portal allows the use of magical left arrow to ease the game :P', canvas.width / 2 - ctx.measureText('Green Portal allows the use of magical left arrow to ease the game :P').width / 2, 550);
+        ctx.fillText('ENTER Key starts the game, BEGIN!', canvas.width / 2 - ctx.measureText('ENTER Key starts the game, BEGIN!').width / 2, 600);
+        ctx.fill();
     },
     viewPortWidth: window.innerWidth,
     viewPortHeight: window.innerHeight
