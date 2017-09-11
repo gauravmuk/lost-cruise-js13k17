@@ -18,7 +18,7 @@ gulp.task('build', function () {
         'src/paint/AnimationFrameController.js',
         'src/GameMaker.js'
     ])
-        .pipe(concat('ship.min.js'))
+        .pipe(concat('s.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
