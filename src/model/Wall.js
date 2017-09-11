@@ -1,4 +1,4 @@
-var colors = ['#000F08', '#18FF6D'];
+var colors = ['black', '#18FF6D'];
 
 function Wall(options) {
     options = options || {};
