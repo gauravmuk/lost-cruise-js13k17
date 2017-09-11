@@ -5,9 +5,6 @@ function bootstrap() {
     if (GameFactory.state !== 'INTRO') {
         GameFactory.addShip();
         GameFactory.addWalls();
-        GameFactory.initCamera();
-
-
         GameFactory.background.paint();
         GameFactory.ship.paint();
         GameFactory.paintWalls();

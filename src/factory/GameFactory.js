@@ -105,24 +105,37 @@ var GameFactory = {
         this.state = 'INTRO';
         ctx.font = '96px p';
         ctx.fillStyle = '#8AC926';
-        textWidth = ctx.measureText('Lost Cruise').width;
-        ctx.fillText('Lost Cruise', canvas.width / 2 - textWidth / 2, 100);
+
+        var currentText = 'Lost Cruise';
+        textWidth = ctx.measureText(currentText).width;
+        ctx.fillText(currentText, canvas.width / 2 - textWidth / 2, 100);
 
         ctx.fillStyle = '#FFCA3A';
         ctx.font = '20px p';
-        ctx.fillText('How to play:', canvas.width / 2 - ctx.measureText('How to play:').width / 2, 150);
-        ctx.fillText('Right Arrow to Accelerate', canvas.width / 2 - ctx.measureText('Right Arrow to Accelerate').width / 2, 200);
-        ctx.fillText('Left Arrow to Slow Down(Disabled)', canvas.width / 2 - ctx.measureText('Left Arrow to Slow Down(Disabled)').width / 2, 250);
-        ctx.fillText('Up Arrow to Bubble Up', canvas.width / 2 - ctx.measureText('Up Arrow to Bubble Up').width / 2, 300);
-        ctx.fillText('Down Arrow to Sink', canvas.width / 2 - ctx.measureText('Down Arrow to Sink').width / 2, 350);
-        ctx.fillText('Space Button shoots bullets', canvas.width / 2 - ctx.measureText('Space Button shoots bullets').width / 2, 400);
+
+        currentText = 'How to play:';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 150);
+        currentText = 'Right Arrow to Accelerate';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 200);
+        currentText = 'Left Arrow to Slow Down(Disabled)';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 250);
+        currentText = 'Up Arrow to Bubble Up';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 300);
+        currentText = 'Down Arrow to Sink';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 350);
+        currentText = 'Space Button shoots bullets';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 400);
 
         ctx.fillStyle = '#D64933';
         ctx.font = '30px p';
-        ctx.fillText('Break Walls To Find Portals!', canvas.width / 2 - ctx.measureText('Break Walls To Find Portals!').width / 2, 450);
-        ctx.fillText('Black Portal reveals the LOST WORLD :D', canvas.width / 2 - ctx.measureText('Black Portal reveals the LOST WORLD :D').width / 2, 500);
-        ctx.fillText('Green Portal allows the use of magical left arrow to ease the game :P', canvas.width / 2 - ctx.measureText('Green Portal allows the use of magical left arrow to ease the game :P').width / 2, 550);
-        ctx.fillText('ENTER Key starts the game, BEGIN!', canvas.width / 2 - ctx.measureText('ENTER Key starts the game, BEGIN!').width / 2, 600);
+        currentText = 'Break Walls To Find Portals!';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 450);
+        currentText = 'Black Portal reveals the LOST WORLD :D';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 500);
+        currentText = 'Green Portal allows the use of magical left arrow to ease the game :P';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 550);
+        currentText = 'ENTER Key starts the game, BEGIN!';
+        ctx.fillText(currentText, canvas.width / 2 - ctx.measureText(currentText).width / 2, 600);
         ctx.fill();
     },
     viewPortWidth: window.innerWidth,
